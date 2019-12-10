@@ -114,9 +114,8 @@ class DetailContainer extends Component {
                 editReview: '',
                 editReviewText: ''
             },
-            () => editReview(this.state.loggedInUser, editedReview, () => {
-                getSongReviews(this.state.id, this.setReviews)
-            })
+            () => editReview(this.state.loggedInUser, editedReview,
+                () => getSongReviews(this.state.id, this.setReviews))
         );
     };
 
