@@ -1,6 +1,7 @@
 import React from 'react';
 
 import InputField from './InputField';
+import {READER, REVIEWER} from "../../Constants";
 
 const ProfileComponent = ({user, username, currentPassword, password, verifyPassword, onInputChange, validUser, validateUser, logout}) => {
     return (
@@ -9,20 +10,17 @@ const ProfileComponent = ({user, username, currentPassword, password, verifyPass
             {
                 !validUser && <h3 className="t16-redtext">Invalid credentials</h3>
             }
-                {console.log(user)}
             <div className='form-group row t16-left-align'>
                 <label className='col-sm-2 col-form-label' htmlFor={"user-role"}>
-                        Role
+                    Role
                 </label>
-                {/*<select
+                <select
                     id="user-role"
                     className="browser-default custom-select col-sm-3 form-control"
-                    onChange={(e) => onInputChange('role', e.target.value)}
                     disabled>
-                        <option value="reviewer">Reviewer</option>
-                        <option value="reader" defaultValue>Reader</option>
-                </select>*/}
-                <input id="user-role" value={user.role} disabled/>
+                    <option value={REVIEWER} defaultValue={user.role=REVIEWER}>Reviewer</option>
+                    <option value={READER} defaultValue={user.role===READER}>Reader</option>
+                </select>
             </div>
 
             <InputField

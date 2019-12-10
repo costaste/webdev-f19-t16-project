@@ -1,4 +1,5 @@
 import React from 'react';
+import {READER} from "../../Constants";
 
 const Review = (props) => {
   const likedByUser = (like) => like.username === props.loggedInUser;
@@ -10,19 +11,16 @@ const Review = (props) => {
     <span className='t16-review-controls'>
       <i
         className='fa fa-times t16-review-control'
-        onClick={() => props.deleteReview(props.review.id)}
-      />
+        onClick={() => props.deleteReview(props.review.id)}/>
       <i
         className='fa fa-ellipsis-v t16-review-control'
-        onClick={() => props.setEditReview(props.review.id)}
-      />
+        onClick={() => props.setEditReview(props.review.id)}/>
       {
-        props.editReview === props.review.id
+        props.editReview===props.review.id
         &&
         <i
           className='fa fa-check t16-review-control'
-          onClick={props.submitEditReview}
-        />
+          onClick={props.submitEditReview}/>
       }
     </span>
   );
@@ -50,9 +48,9 @@ const Review = (props) => {
         }
       </span>
       <span>
-      {props.review.likes.length}
+      {props.review.likes.length} like{props.review.likes.length === 1 ? "" : "s"}
       {
-        props.loggedInUser && props.loggedInUserRole === 'reader' && (
+        props.loggedInUser && props.loggedInUserRole === READER && (
           <i
             className={`fa fa-thumbs-up t16-review-control ${likedCssClass}`}
             onClick={() => props.likeReview(props.review.id)}
@@ -62,6 +60,6 @@ const Review = (props) => {
       </span>
     </div>
   );
-}
+};
 
 export default Review;

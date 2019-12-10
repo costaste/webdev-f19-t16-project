@@ -45,8 +45,8 @@ export default class NavContainer extends React.Component {
 
         if(this.state.loggedInUser) {
             links.push({
-                "url": `/profile/${this.state.loggedInUser}`,
-                "route": "/profile/:username",
+                "url": `/profile`,
+                "route": "/profile",
                 "text": "Profile",
                 render: (props) => <UserContainer {...props} componentType={'profile'}/>
             })

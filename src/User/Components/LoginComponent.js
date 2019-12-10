@@ -14,11 +14,13 @@ const LoginComponent = ({username, password, validateUser, onInputChange, validU
                 </h3>
             }
             <InputField
+                id={'username'}
                 currInput={username}
                 label={'Username'}
                 onChange={(e) => onInputChange('username', e.target.value)}
             />
             <InputField
+                id={'password'}
                 currInput={password}
                 label={'Password'}
                 onChange={(e) => onInputChange('password', e.target.value)}
