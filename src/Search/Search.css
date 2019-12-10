@@ -12,18 +12,11 @@
   font-size: small;
   padding: 5px;
   margin: 2px;
-  border: 1px solid #333333;
-  border-radius: 10px;
+  border: 1px solid #9f9f9f;
+  border-radius: 5px;
   background-color: #f9fb5c;
 }
 
 .t16-pad-bottom {
   padding-bottom: 3%;
-}
-
-h1{
-  position: absolute;
-  top: 50px;
-  left: 0;
-  width: 100%;
 }

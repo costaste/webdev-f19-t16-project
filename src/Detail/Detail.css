@@ -16,18 +16,20 @@
     text-align: left;
 }
 
-
 .t16-details-reviews {
     margin-top: 5%;
+    text-align: left;
 }
 
 .t16-review {
-    border: 1px solid #333333;
-    border-radius: 10px;
+    //border: 1px solid #333333;
+    text-align: left;
+    border-radius: 5px;
     padding: 1%;
     display: flex;
     flex-direction: row;
     width: 100%;
+    background-color: #e0e0e0;
 }
 
 .t16-review-text {
@@ -42,6 +44,7 @@
 .t16-review-container {
     display: flex;
     flex-direction: row;
+    margin: 5px;
 }
 
 .t16-review-control {
@@ -51,4 +54,8 @@
 
 .t16-liked {
     color: #007bff;
+}
+
+.t16-review-btn {
+    float: right;
 }

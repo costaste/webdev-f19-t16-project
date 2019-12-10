@@ -7,7 +7,7 @@ const Result = ({data, referents}) =>
             <h1 className="col-8">{Object.keys(data) ? data.full_title : ""}</h1>
         </div>
 
-        <h4>Annotations</h4>
+        <h3>Annotations</h3>
         {
             referents && referents.map(ref =>
                     <p key={ref.fragment}>

@@ -6,6 +6,7 @@ import { getCookie } from '../../utils';
 import NavBar from "../Components/NavBar";
 import SearchContainer from "../../Search/Containers/SearchContainer";
 import UserContainer from "../../User/Containers/UserContainer";
+import Content from "../../Home/Containers/Content";
 
 export default class NavContainer extends React.Component {
     constructor(props) {
@@ -31,6 +32,11 @@ export default class NavContainer extends React.Component {
 
     getNavLinks = () => {
         let links = [{
+            "url": "/home",
+            "route": "/home",
+            "text": "Home",
+            "component": Content
+        }, {
             "url": "/search",
             "route": "/search",
             "text": "Search",
@@ -39,8 +45,8 @@ export default class NavContainer extends React.Component {
 
         if(this.state.loggedInUser) {
             links.push({
-                "url": `/profile/${this.state.loggedInUser}`,
-                "route": "/profile/:username",
+                "url": `/profile`,
+                "route": "/profile",
                 "text": "Profile",
                 render: (props) => <UserContainer {...props} componentType={'profile'}/>
             })
