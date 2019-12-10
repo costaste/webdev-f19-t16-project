@@ -10,8 +10,13 @@ import {LOGGED_IN_USER} from "../../Constants";
 
 
 class ReviewContainer extends React.Component {
+  song;
+
   constructor(props) {
     super(props);
+
+    this.song = this.props.match.params.song;
+
     this.state = {
       reviewText: ''
     }
@@ -41,7 +46,7 @@ class ReviewContainer extends React.Component {
   render = () => {
     return (
       <ReviewComponent
-        song={this.props.song}
+        song={this.song}
         onChange={this.onChange}
         onSubmit={this.submitReview}
       />

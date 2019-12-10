@@ -10,7 +10,6 @@ import {getCookie, setCookie} from '../../utils';
 import LoadingData from "../../Shared/Components/LoadingData";
 import {LOGGED_IN_USER, LOGGED_IN_USER_ROLE, REVIEWER} from "../../Constants";
 import ReviewList from "../Components/ReviewList";
-import ReviewContainer from "../../Review/Containers/ReviewContainer";
 import IfLoggedIn from "../../Shared/Components/IfLoggedIn";
 
 class DetailContainer extends Component {
@@ -164,14 +163,20 @@ class DetailContainer extends Component {
             <div className='button_container fluid-container'>
                 <LoadingData loading={this.isLoading()}>
                     <Result data={this.state.data} referents={this.state.referents}/>
-                    <IfLoggedIn loggedIn={this.state.loggedInUser}
-                                showIfLoggedIn={
-                                    loggedInUserRole===REVIEWER ?
-                                        <ReviewButton onClick={this.reviewRedirect}/> :
-                                        <Link to="/login">Log in as a reviewer to review</Link>}
-                                showIfNotLoggedIn={<Link to="/login">Log in to review</Link>}/>
                     <div className={"container"}>
-                        <h3 className='t16-details-reviews'>Reviews</h3>
+                        <div className={"row"}>
+                            <h3 className='t16-details-reviews'>Reviews</h3>
+                        </div>
+                        <div className={"row"}>
+                            <div className={"col-12"}>
+                                <IfLoggedIn loggedIn={this.state.loggedInUser}
+                                            showIfLoggedIn={
+                                                loggedInUserRole===REVIEWER ?
+                                                    <ReviewButton onClick={this.reviewRedirect}/> :
+                                                    <Link to="/login">Log in as a reviewer to review</Link>}
+                                            showIfNotLoggedIn={<Link to="/login">Log in to review</Link>}/>
+                            </div>
+                        </div>
                         <ReviewList
                             reviews={reviews}
                             editReview={editReview}
