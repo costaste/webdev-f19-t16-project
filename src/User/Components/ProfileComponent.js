@@ -2,6 +2,9 @@ import React from 'react';
 
 import InputField from './InputField';
 import {READER, REVIEWER} from "../../Constants";
+import { getCookie } from '../../utils';
+import {LOGGED_IN_USER, LOGGED_IN_USER_ROLE, LOGIN, PROFILE, REGISTER} from "../../Constants";
+
 
 const ProfileComponent = ({user, username, currentPassword, password, verifyPassword, onInputChange, validUser, validateUser, logout}) => {
     return (
@@ -21,6 +24,7 @@ const ProfileComponent = ({user, username, currentPassword, password, verifyPass
                     <option value={REVIEWER} defaultValue={user.role=REVIEWER}>Reviewer</option>
                     <option value={READER} defaultValue={user.role===READER}>Reader</option>
                 </select>
+                {getCookie(LOGGED_IN_USER_ROLE)}
             </div>
 
             <InputField
