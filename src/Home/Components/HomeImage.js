@@ -19,7 +19,7 @@ const HomeImage = () => {
         <div>
             <img
                 src={src}
-                style={background} responsive
+                style={background}
                 className='t16-home-image'
                 alt={src}
             />
