@@ -39,7 +39,7 @@ export const loginUser = (user, callback) => {
 };
 
 export const getAllReviews = (callback) => {
-    fetch('${URL}/api/reviews', {
+    fetch(`${URL}/api/reviews`, {
         method: 'GET',
         headers: HEADERS
     })

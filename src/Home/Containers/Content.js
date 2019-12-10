@@ -1,6 +1,10 @@
 import React from 'react';
 import HomeImage from '../Components/HomeImage';
 import PolicyContainer from '../../Privacy/Containers/PolicyContainer';
+import {getCookie} from "../../utils";
+import {getUserReviews} from "../../Services/BackendService";
+import {LOGGED_IN_USER} from "../../Constants";
+import UserReviews from "../Components/UserReviews";
 
 export default class Content extends React.Component {
     src;
@@ -18,13 +22,25 @@ export default class Content extends React.Component {
         const randInt = max => Math.floor(Math.random() * Math.floor(max));
 
         this.src = imageUrls[randInt(imageUrls.length)];
+
+        this.state = {
+            username: getCookie(LOGGED_IN_USER) || "",
+            reviews: []
+        }
+    }
+
+    componentDidMount() {
+        if(this.state.username) {
+            getUserReviews(this.state.username,
+                reviews => this.setState({reviews: reviews}));
+        }
     }
 
     render() {
         return (
             <div>
+                {this.state.username && <UserReviews reviews={this.state.reviews}/>}
                 <HomeImage src={this.src}/>
-                <h1><span>Welcome</span></h1>
                 <PolicyContainer />
             </div>
         );
