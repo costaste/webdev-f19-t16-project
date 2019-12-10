@@ -1,9 +1,8 @@
 import React from 'react';
 
 import InputField from './InputField';
-import {READER, REVIEWER} from "../../Constants";
 import { getCookie } from '../../utils';
-import {LOGGED_IN_USER, LOGGED_IN_USER_ROLE, LOGIN, PROFILE, REGISTER} from "../../Constants";
+import {LOGGED_IN_USER_ROLE} from "../../Constants";
 
 
 const ProfileComponent = ({user, username, currentPassword, password, verifyPassword, onInputChange, validUser, validateUser, logout}) => {
@@ -56,6 +55,6 @@ const ProfileComponent = ({user, username, currentPassword, password, verifyPass
             </button>
         </div>
     )
-}
+};
 
 export default ProfileComponent;

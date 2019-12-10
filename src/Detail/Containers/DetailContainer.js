@@ -43,9 +43,9 @@ class DetailContainer extends Component {
             {
             loggedInUserRole: user.role
             },
-            setCookie(LOGGED_IN_USER_ROLE, user.role, 3)
+            () => setCookie(LOGGED_IN_USER_ROLE, user.role, 3)
         )
-    }
+    };
 
     getSongInfo = () => {
         getSong(this.state.id, response =>
