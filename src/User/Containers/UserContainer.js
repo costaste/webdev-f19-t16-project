@@ -34,8 +34,10 @@ class UserContainer extends React.Component {
 
     register = (success) => {
         const {user} = this.state;
+
         if(success) {
-            setCookie(LOGGED_IN_USER, this.state.username, 3);
+            setCookie(LOGGED_IN_USER, user.username, 3);
+            setCookie(LOGGED_IN_USER_ROLE, user.role, 3);
             registerUser(user, this.profileRedirect);
         } else {
             this.setState({validUser: false});
