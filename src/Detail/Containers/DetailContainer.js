@@ -33,7 +33,6 @@ class DetailContainer extends Component {
         this.getUser();
     };
 
-
     getUser = () => {
         getUser(this.state.loggedInUser, this.setUser);
     };
@@ -115,7 +114,9 @@ class DetailContainer extends Component {
                 editReview: '',
                 editReviewText: ''
             },
-            () => editReview(this.state.loggedInUser, editedReview, this.setReviews)
+            () => editReview(this.state.loggedInUser, editedReview, () => {
+                getSongReviews(this.state.id, this.setReviews)
+            })
         );
     };
 
@@ -123,12 +124,12 @@ class DetailContainer extends Component {
         getSongReferents(this.state.id, response => {
             let referents;
 
-            referents = response.response.referents.map(ref => { return {
+            referents = response.response.referents.map(ref => ({
                 fragment: ref.fragment,
                 annotations: ref.annotations.map(ann => {
                     return this.getAllDomText(ann.body.dom);
                 })
-            }});
+            }));
 
             this.setState({
                 referents: referents

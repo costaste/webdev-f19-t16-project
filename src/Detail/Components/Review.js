@@ -1,5 +1,7 @@
 import React from 'react';
 import {READER} from "../../Constants";
+import {Link} from "react-router-dom";
+import ReviewControls from "./ReviewControls";
 
 const Review = (props) => {
     const likedByUser = (like) => like.username === props.loggedInUser;
@@ -7,33 +9,25 @@ const Review = (props) => {
     const isThisReview = (review) => review.id === props.review.id;
     const writtenByUser = props.userReviews.some(isThisReview);
 
-    const reviewControls = (
-        <span className='t16-review-controls'>
-            <i className='fa fa-times t16-review-control'
-               onClick={() => props.deleteReview(props.review.id)}/>
-            <i className='fa fa-ellipsis-v t16-review-control'
-               onClick={() => props.setEditReview(props.review.id)}/>
-            {
-                props.editReview===props.review.id &&
-                <i className='fa fa-check t16-review-control'
-                   onClick={props.submitEditReview}/>
-            }
-        </span>
-    );
-
     return (
         <div className='t16-review-container row'>
             <span className='t16-review col-10'>
                 {
                     props.editReview === props.review.id ?
-                        (<textarea
+                        <textarea
                                 onChange={props.onChange}
                                 className='t16-edit-review'
-                                defaultValue={props.editReviewText || props.review.text}/>) :
-                        (<p className='t16-review-text'>{props.review.text}</p>)
+                                defaultValue={props.editReviewText || props.review.text}/> :
+                        <p className='t16-review-text'>{props.review.text}</p>
                 }
                 {
-                    writtenByUser && reviewControls
+                    writtenByUser &&
+                    <ReviewControls
+                        id={props.review.id}
+                        deleteReview={props.deleteReview}
+                        setEditReview={props.setEditReview}
+                        submitEditReview={props.submitEditReview}
+                        editReview={props.editReview}/>
                 }
             </span>
             <span className={"col-2"}>
@@ -45,7 +39,14 @@ const Review = (props) => {
                             onClick={() => props.likeReview(props.review.id)}
                         />
                     )
-                }
+                }<br/>
+                {props.review.likes.length > 0 ? "Liked by " : ""}
+                {props.review.likes.map((like, i) => {
+                    return <span key={like.username}>
+                        {(i > 0 ? ", " : "")}
+                        <Link to={`/profile/${like.username}`}>{like.username}</Link>
+                    </span>
+                })}
             </span>
         </div>
     );
