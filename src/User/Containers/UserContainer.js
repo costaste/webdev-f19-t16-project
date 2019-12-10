@@ -112,7 +112,7 @@ class UserContainer extends React.Component {
         this.setState({
                 user: newUser
             },
-            () => validateUser(newUser, this.register)
+            validateUser(newUser, this.register)
         );
     };
 
