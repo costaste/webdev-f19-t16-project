@@ -6,6 +6,7 @@ import { getCookie } from '../../utils';
 import NavBar from "../Components/NavBar";
 import SearchContainer from "../../Search/Containers/SearchContainer";
 import UserContainer from "../../User/Containers/UserContainer";
+import Content from "../../Home/Containers/Content";
 
 export default class NavContainer extends React.Component {
     constructor(props) {
@@ -31,6 +32,11 @@ export default class NavContainer extends React.Component {
 
     getNavLinks = () => {
         let links = [{
+            "url": "/home",
+            "route": "/home",
+            "text": "Home",
+            "component": Content
+        }, {
             "url": "/search",
             "route": "/search",
             "text": "Search",
