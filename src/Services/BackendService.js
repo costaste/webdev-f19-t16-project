@@ -45,7 +45,7 @@ export const getAllReviews = (callback) => {
     })
         .then(response => response.json())
         .then(callback)
-}
+};
 
 export const getUserReviews = (user, callback) => {
     fetch(`${URL}/api/users/${user}/reviews`, {
@@ -120,5 +120,14 @@ export const editReview = (user, review, callback) => {
     })
     .then(response => response.json())
     .then(callback)
+};
+
+export const getUser = (username, callback) => {
+    fetch(`${URL}/api/users/${username}`, {
+        method: 'GET',
+        headers: HEADERS
+    })
+        .then(response => response.json())
+        .then(callback)
 };
 
