@@ -48,13 +48,13 @@ const ProfileComponent = ({user, username, currentPassword, password, verifyPass
             />
             <button
                 onClick={validateUser}
-                className="btn btn-primary"
+                className="btn btn-primary t16-profile-btn"
             >
                     Update
             </button>
             <button
                 onClick={logout}
-                className="btn btn-outline-danger"
+                className="btn btn-outline-danger t16-profile-btn"
             >
                     Logout
             </button>
