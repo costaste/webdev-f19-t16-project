@@ -76,7 +76,7 @@ class DetailContainer extends Component {
     };
 
     likeReview = (id) => {
-        likeReview(this.state.loggedInUser, id, this.setReviews);
+        likeReview(this.state.loggedInUser, id, this.getReviews);
     };
 
     onChange = (e) => {
