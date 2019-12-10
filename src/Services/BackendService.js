@@ -122,3 +122,12 @@ export const editReview = (user, review, callback) => {
     .then(callback)
 };
 
+export const getUser = (user, callback) => {
+    fetch(`${URL}/api/users/${user}`, {
+        method: 'GET',
+        headers: HEADERS
+    })
+    .then(response => response.json())
+    .then(callback)
+}
+
