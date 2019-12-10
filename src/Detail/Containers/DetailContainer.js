@@ -5,8 +5,8 @@ import '../Detail.css';
 import Result from '../Components/Result';
 import ReviewButton from '../Components/ReviewButton';
 import {getSong, getSongReferents} from '../../Services/GeniusApiService';
-import {getSongReviews, likeReview, getUserReviews, deleteReview, editReview} from '../../Services/BackendService';
-import {getCookie} from '../../utils';
+import {getSongReviews, likeReview, getUserReviews, deleteReview, editReview, getUser} from '../../Services/BackendService';
+import {getCookie, setCookie} from '../../utils';
 import LoadingData from "../../Shared/Components/LoadingData";
 import {LOGGED_IN_USER, LOGGED_IN_USER_ROLE, REVIEWER} from "../../Constants";
 import ReviewList from "../Components/ReviewList";
@@ -29,7 +29,22 @@ class DetailContainer extends Component {
     componentDidMount = () => {
         this.getSongInfo();
         this.getAnnotations();
+        this.getUser();
     };
+
+
+    getUser = () => {
+        getUser(this.state.loggedInUser, this.setUser);
+    };
+
+    setUser = (user) => {
+        this.setState(
+            {
+            loggedInUserRole: user.role
+            },
+            setCookie(LOGGED_IN_USER_ROLE, user.role, 3)
+        )
+    }
 
     getSongInfo = () => {
         getSong(this.state.id, response =>
