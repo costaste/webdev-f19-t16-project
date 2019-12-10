@@ -1,0 +1,11 @@
+.t16-redtext {
+    color: red;
+}
+
+.t16-left-align {
+    text-align: left;
+}
+
+label {
+    font-size: .8em !important;
+}

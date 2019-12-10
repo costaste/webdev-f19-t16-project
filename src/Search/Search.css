@@ -1,0 +1,29 @@
+.t16-artist {
+  display: flex;
+  flex-direction: row;
+}
+
+.t16-tag-btn {
+  cursor: pointer;
+  padding: 5px;
+}
+
+.t16-artist-tag {
+  font-size: small;
+  padding: 5px;
+  margin: 2px;
+  border: 1px solid #333333;
+  border-radius: 10px;
+  background-color: #f9fb5c;
+}
+
+.t16-pad-bottom {
+  padding-bottom: 3%;
+}
+
+h1{
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+}

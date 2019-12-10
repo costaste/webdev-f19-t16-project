@@ -1,0 +1,8 @@
+.t16-review-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.t16-review-input {
+  margin: 1%;
+}
