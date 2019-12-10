@@ -106,7 +106,7 @@ class UserContainer extends React.Component {
         const newUser = {
             username,
             password,
-            role
+            role: role || 'reviewer'
         };
 
         this.setState({
