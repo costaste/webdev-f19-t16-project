@@ -13,17 +13,10 @@ const ProfileComponent = ({user, username, currentPassword, password, verifyPass
             {
                 !validUser && <h3 className="t16-redtext">Invalid credentials</h3>
             }
-            <div className='form-group row t16-left-align'>
-                <label className='col-sm-2 col-form-label' htmlFor={"user-role"}>
+            <div id="user-role" className='form-group row t16-left-align'>
+                <label className='col-sm-2 col-form-label'>
                     Role
                 </label>
-                <select
-                    id="user-role"
-                    className="browser-default custom-select col-sm-3 form-control"
-                    disabled>
-                    <option value={REVIEWER} defaultValue={user.role=REVIEWER}>Reviewer</option>
-                    <option value={READER} defaultValue={user.role===READER}>Reader</option>
-                </select>
                 {getCookie(LOGGED_IN_USER_ROLE)}
             </div>
 
@@ -38,32 +31,27 @@ const ProfileComponent = ({user, username, currentPassword, password, verifyPass
                 currInput={currentPassword}
                 label={'Current Password'}
                 onChange={(e) => onInputChange('currentPassword', e.target.value)}
-                password={true}
-            />
+                password={true}/>
             <InputField
                 id="new-password"
                 currInput={password}
                 label={'Update Password'}
                 onChange={(e) => onInputChange('password', e.target.value)}
-                password={true}
-            />
+                password={true}/>
             <InputField
                 id="verify-password"
                 currInput={verifyPassword}
                 label={'Verify New Password'}
                 onChange={(e) => onInputChange('verifyPassword', e.target.value)}
-                password={true}
-            />
+                password={true}/>
             <button
                 onClick={validateUser}
-                className="btn btn-primary"
-            >
+                className="btn btn-primary">
                     Update
             </button>
             <button
                 onClick={logout}
-                className="btn btn-outline-danger"
-            >
+                className="btn btn-outline-danger">
                     Logout
             </button>
         </div>

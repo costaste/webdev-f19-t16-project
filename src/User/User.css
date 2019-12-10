@@ -9,3 +9,7 @@
 label {
     font-size: .8em !important;
 }
+
+#user-role {
+    text-transform: capitalize;
+}
